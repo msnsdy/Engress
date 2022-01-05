@@ -1,0 +1,73 @@
+@use "../config/setting" as *;
+/*==========================================================================
+
+# 基本設定
+
+========================================================================== */
+body {
+  color: $secondary-color;
+  background-color: $main-color;
+  font-size: 16px;
+  font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "メイリオ", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+
+  &.fixed {
+    overflow: hidden;
+  }
+}
+
+main {
+  margin-top: 80px;
+
+  @media (max-width:1024px) {
+    margin-top: 60px;
+  }
+}
+
+dl,
+dt,
+dd {
+  font-size: 16px;
+}
+
+img {
+  width: 100%;
+}
+
+.inner {
+  width: $pc-inner;
+  max-width: 100%;
+  margin: 0 auto;
+
+  @media (min-width: 1025px) {
+    padding: 0 40px;
+  }
+
+  @include mq('sp') {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  @include mq('tab') {
+    width: 100%;
+    padding: 0 20px;
+  }
+}
+
+.is-pc-hidden {
+  @media (min-width: 1025px) {
+    display: none;
+  }
+}
+
+.is-sp-hidden {
+
+  @include mq('sp') {
+    display: none;
+  }
+}
+
+.is-mb-hidden {
+  @media (max-width:1024px) {
+    display: none;
+  }
+}

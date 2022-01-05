@@ -1,0 +1,228 @@
+@use "../config/setting" as *;
+
+/*==========================================================================
+
+# priceメインビジュアル
+
+========================================================================== */
+.mv-lower-price {
+  background-image: url(#{$css-path}img/bg/mv-lower-price.jpg);
+}
+
+/*==========================================================================
+
+# priceメインセクション
+
+========================================================================== */
+.lower-price {
+  margin-top: 58px;
+  padding-bottom: 62px;
+
+  @media (max-width: 1024px) {
+    padding-bottom: 0;
+  }
+}
+
+/*
+# price-system
+==================================== */
+.price-system {
+  &-wrapper {
+    margin: 58px 12px 0 0;
+    display: flex;
+    justify-content: center;
+    @include mq("sp") {
+      margin: 50px 0 0;
+    }
+  }
+
+  &-box {
+    width: 280px;
+    background-color: $secondary-color;
+    border: solid 1px $secondary-color;
+    padding: 34px 0 29px;
+    text-align: center;
+
+    @include mq("sp") {
+      width: 140px;
+      padding: 26px 0;
+    }
+
+    p {
+      color: $main-color;
+      font-size: 22px;
+      font-weight: bold;
+      @include mq("sp") {
+        font-size: 17px;
+        font-weight: normal;
+      }
+    }
+
+    &:first-child {
+      margin-right: 98px;
+      position: relative;
+      @include mq("sp") {
+        margin-right: 60px;
+      }
+
+      &::before,
+      &::after {
+        position: absolute;
+        content: "";
+        width: 25px;
+        height: 2px;
+        background-color: $secondary-color;
+        top: 55%;
+        right: -63px;
+        @include mq("sp") {
+          right: -40px;
+        }
+      }
+
+      &::before {
+        transform: translateY(-50%);
+      }
+
+      &::after {
+        transform: translateY(-50%) rotate(90deg);
+      }
+    }
+  }
+
+  &-text {
+    margin-top: 41px;
+    line-height: (27 / 16);
+    @include mq("sp") {
+      margin-top: 30px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  }
+}
+
+/*
+# price-table
+==================================== */
+.price-table {
+  margin-top: 94px;
+  @include mq("sp") {
+    margin-top: 60px;
+  }
+  
+  &-list {
+    display: flex;
+    width: 100%;
+    padding-top: 106px;
+
+    @media (max-width:1024px) {
+      width: 100vw;
+      margin: 0 calc(50% - 50vw);
+      scrollbar-width: none;
+      overflow-x: scroll;
+      padding: 90px 20px;
+
+    }
+    
+    @include mq("sp") {
+      width: 100vw;
+      margin: 0 calc(50% - 50vw);
+    }
+  }
+
+  &-item {
+    width: 220px;
+    @media (max-width:1024px) {
+      min-width: 220px;
+    }
+
+    @include mq('tab') {
+      width: 100%;
+    }
+
+    &:not(:first-child) {
+      margin-left: 7px;
+    }
+  }
+
+  &-head {
+    background-color: $secondary-color;
+    padding: 19px 0 21px;
+    text-align: center;
+  }
+
+  &-plan {
+    color: $main-color;
+    font-weight: bold;
+  }
+
+  &-body {
+    border: solid 0.5px $secondary-color;
+    border-top: none;
+    padding: 17px 20px 0;
+    text-align: center;
+    height: 414px;
+  }
+
+  &-price {
+    span.is-accent {
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    span {
+      display: block;
+      margin-top: 12px;
+    }
+  }
+
+  &-feature {
+    margin-top: 48px;
+
+    p {
+      &:not(:first-child) {
+        margin-top: 18px;
+      }
+    }
+
+    &.-check {
+      p {
+        display: inline-block;
+        position: relative;
+        padding-left: 25px;
+
+        &::before {
+          position: absolute;
+          content: "";
+          border-left: solid 3px $secondary-color;
+          border-bottom: solid 3px $secondary-color;
+          width: 13px;
+          height: 9px;
+          top: 2px;
+          left: 0;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  &-item.-recommend {
+    margin-top: -37px;
+
+    .price-table-head {
+      background-color: $accent-color;
+    }
+
+    .price-table-plan {
+      span {
+        display: block;
+        margin-top: 19px;
+      }
+    }
+
+    .price-table-price {
+      span.is-accent {
+        color: $accent-color;
+      }
+    }
+  }
+}

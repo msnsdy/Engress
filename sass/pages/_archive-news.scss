@@ -1,0 +1,78 @@
+@use "../config/setting" as *;
+
+/*==========================================================================
+
+# newsメインビジュアル
+
+========================================================================== */
+.mv-lower-news {
+  background-image: url(#{$css-path}img/bg/mv-lower-news.jpg);
+}
+
+/*==========================================================================
+
+# newsメインセクション
+
+========================================================================== */
+.archive-news {
+  margin: 55px 0 45px;
+
+  &-list {
+    margin: 45px 0 71px;
+    @include mq('sp') {
+      margin: 45px 0;
+    }
+
+    @include mq('tab') {
+      width: 90%;
+      margin: 45px auto;
+    }
+  }
+
+  &-item {
+    border-top: solid 1px #D5D5D5;
+    &:last-child {
+      border-bottom: solid 1px #D5D5D5;
+    }
+    
+    a {
+      display: flex;
+      align-items: center;
+      padding: 23px 28px 22px 0;
+      transition: all 0.3s ease 0s;
+      @media (min-width: 1025px) {
+        &:hover {
+          opacity: 0.5;
+          transition: all 0.3s ease 0s;
+        }
+      }
+      @include mq('sp') {
+        display: block;
+        padding: 23px 0 24px;
+      }
+    }
+  }
+
+  &-date {
+    @include mq('sp') {
+      width: 100%;
+      font-size: 14px;
+    }
+
+    @include mq('tab') {
+      display: inline-block;
+      white-space: nowrap;
+    }
+  }
+
+  &-title {
+    margin-left: 50px;
+    text-decoration: underline;
+    
+    @include mq('sp') {
+      margin: 10px 0 0;
+      line-height: 1.6;
+    }
+
+  }
+}

@@ -1,0 +1,62 @@
+@use "../config/setting" as *;
+
+.pagination {
+  text-align: center;
+  font-size: 0;
+  @include mq("sp") {
+    padding: 0 20px;
+  }
+
+  span.extend {
+    margin-left: 36px;
+    margin-right: 17px;
+    font-size: 16px;
+
+    @include mq("sp") {
+      margin-left: 20px;
+      margin-right: 1px;
+    }
+  }
+
+  a.page-numbers,
+  span.page-numbers.current {
+    // font-size: 16px;
+    // width: 50px;
+    // height: 50px;
+    // padding: 17px 0;
+    border: solid 1px $secondary-color;
+    // display: inline-block;
+    transition: all 0.3s ease 0s;
+    @media (min-width: 1025px) {
+      &:hover {
+        background-color: $secondary-color;
+        color: $main-color;
+        transition: all 0.3s ease 0s;
+      }
+    }
+
+    @include mq("sp") {
+      width: 40px;
+      height: 40px;
+      padding: 10px 0;
+    }
+
+    &.current {
+      background-color: $secondary-color;
+      color: $main-color;
+    }
+
+  }
+}
+
+.page-numbers {
+  font-size: 16px;
+  width: 50px;
+  height: 50px;
+  padding: 17px 0;
+  display: inline-block;
+  &:not(:first-child){
+    margin-left: 19px;
+  }
+  
+}

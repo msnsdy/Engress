@@ -1,0 +1,107 @@
+@use "../config/setting" as *;
+
+/*==========================================================================
+
+# single-newsメインセクション
+
+========================================================================== */
+.single-news {
+  margin: 53px 0 59px;
+
+  &-title {
+    line-height: (48 / 28);
+  }
+
+  &-date {
+    margin-top: 38px;
+    text-align: right;
+  }
+
+  &-article {
+    margin-top: 59px;
+
+    @include mq('sp') {
+      margin-top: 40px;
+    }
+    h2 {
+      margin-bottom: 24px;
+      @include mq("sp") {
+        margin-bottom: 20px;
+      }
+    }
+
+    h3 {
+      margin: 48px 0 26px;
+      @include mq("sp") {
+        margin: 40px 0 20px;
+      }
+    }
+
+    blockquote {
+      margin-top: 45px;
+      padding: 25px 26px 30px 74px;
+      @include mq("sp") {
+        padding: 27px 26px 17px 60px;
+      }
+
+      &::before {
+        top: 11px;
+        left: 17px;
+        @include mq("sp") {
+          left: 12px;
+        }
+      }
+
+      p {
+        margin-top: 0;
+      }
+
+    }
+    
+    p {
+      line-height: (24 / 16);
+      margin-top: 25px;
+    }
+
+    figure {
+      margin-top: 31px;
+
+      img {
+        max-width: 400px;
+        width: 100%;
+        max-height: 250px;
+      }
+    }
+
+    ul {
+      margin-top: 34px;
+      padding: 0 309px 0 15px;
+
+      @media (max-width: 1024px) {
+        padding: 0;
+      }
+
+      li {
+        line-height: (24 / 16);
+        padding-left: 31px;
+        margin-top: 0;
+
+        @include mq("sp") {
+          &:not(:first-child) {
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+
+    a {
+      margin-top: 27px;
+      font-size: 16px;
+      padding-left: 14px;
+
+      @include mq('sp') {
+        margin-top: 0;
+      }
+    }
+  }
+}

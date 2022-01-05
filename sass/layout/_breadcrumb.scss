@@ -1,0 +1,36 @@
+@use "../config/setting" as *;
+
+.breadcrumb {
+  width: 100%;
+  background-color: #F8F8F8;
+  padding: 15px 0;
+  font-size: 12px;
+  @include mq('sp') {
+    padding: 13px 0;
+  }
+
+  span:first-child {
+    padding-right: 2px;
+  }
+
+  span:not(:first-child) {
+    padding-left: 4px;
+  }
+
+  a {
+    text-decoration: underline;
+    
+    @media (min-width: 1025px) {
+      transition: all 0.3s ease 0s;
+      &:hover {
+        opacity: 0.5;
+        transition: all 0.3s ease 0s;
+      }
+    }
+  }
+}
+
+.current-item {
+  line-height: 1.5;
+  text-decoration: none;
+}

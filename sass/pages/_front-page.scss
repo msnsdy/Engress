@@ -1,0 +1,897 @@
+@use "../config/setting" as *;
+
+/*==========================================================================
+
+# メインビジュアル
+
+========================================================================== */
+.mv {
+  width: 100%;
+  background-image: url(#{$css-path}img/bg/fv.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  @media (max-width: 1024px) {
+    background-image: url(#{$css-path}img/bg/sp/fv-sp.jpg);
+    background-position: center;
+  }
+
+  @include mq("sp") {
+    height: 360px;
+  }
+
+  &-box {
+    text-align: center;
+    padding: 113px 0 86px;
+
+    @include mq("sp") {
+      padding: 80px 0 55px;
+    }
+  }
+
+  &-title {
+    font-size: 48px;
+    font-weight: bold;
+    color: $main-color;
+    text-shadow: 0 3px 6px rgba(#000, 0.16);
+
+    @include mq("sp") {
+      font-size: 30px;
+    }
+  }
+
+  &-text {
+    font-size: 18px;
+    line-height: (31 / 18);
+    color: $main-color;
+    margin-top: 18px;
+
+    @include mq("sp") {
+      font-size: 14px;
+      margin-top: 20px;
+    }
+  }
+
+  &-button {
+    margin-top: 44px;
+
+    @include mq("sp") {
+      margin-top: 30px;
+    }
+
+    @include mq("tab") {
+      margin-top: 40px;
+    }
+
+    a {
+      background-color: $accent-color;
+      padding: 20px 95px 18px 95px;
+      border: solid 1px $accent-color;
+      border-radius: 31px;
+      transition: all 0.3s ease 0s;
+      @media (min-width: 1025px) {
+        &:hover {
+          background-color: $main-color;
+          color: $accent-color;
+          transition: all 0.3s ease 0s;
+        }
+      }
+
+      @include mq("sp") {
+        padding: 17px 94px;
+      }
+
+      @include mq("tab") {
+        padding: 20px 95px 20px 101px;
+      }
+    }
+  }
+
+  &-link {
+    margin-top: 22px;
+    color: $main-color;
+    text-decoration: underline;
+    transition: all 0.3s ease 0s;
+
+    @media (min-width: 1025px) {
+      &:hover {
+        opacity: 0.5;
+        transition: all 0.3s ease 0s;
+      }
+    }
+  }
+}
+
+/*==========================================================================
+
+# introセクション
+
+========================================================================== */
+.intro {
+  padding: 63px 0 54px;
+  background-color: $secondary-color;
+
+  &-problem {
+    &-list {
+      color: $main-color;
+      display: flex;
+      margin: 48px 27px 0 0;
+      justify-content: center;
+
+      @include mq("sp") {
+        margin-top: 45px;
+        display: block;
+        text-align: center;
+        font-size: 16px;
+      }
+
+      @media (max-width: 1024px) {
+        margin-right: 0;
+      }
+    }
+
+    &-item {
+      line-height: (39 / 18);
+      text-align: center;
+      font-size: 18px;
+
+      @include mq("sp") {
+        display: block;
+        font-size: 16px;
+
+        span {
+          display: inline-block;
+          position: relative;
+          padding-left: 20px;
+
+          &::before {
+            position: absolute;
+            content: "";
+            width: 13px;
+            height: 8px;
+            top: 44%;
+            left: 0;
+            transform: translateY(-50%) rotate(-45deg);
+            border-left: solid 2px $main-color;
+            border-bottom: solid 2px $main-color;
+          }
+        }
+      }
+
+      &:nth-child(2) {
+        margin-left: 57px;
+        @include mq("sp") {
+          margin-left: 0;
+        }
+      }
+
+      &:nth-child(3) {
+        margin-left: 30px;
+        @include mq("sp") {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  &-solution {
+    padding: 11px 16px 12px;
+    background-color: $main-color;
+    margin-top: 69px;
+
+    @media (max-width: 1024px) {
+      margin: 40px calc(50% - 50vw) 0;
+      width: 100vw;
+    }
+
+    @include mq("sp") {
+      padding: 11px 7px 12px;
+    }
+
+    &-box {
+      border: solid 5px $secondary-color;
+      padding: 10px 0 21px;
+      text-align: center;
+    }
+
+    &-title {
+      line-height: (50 / 36);
+
+      @include mq("sp") {
+        font-size: 21px;
+      }
+
+      span {
+        background: linear-gradient(transparent 70%, $accent-color 70%);
+      }
+    }
+
+    &-text {
+      margin-top: 22px;
+      font-size: 18px;
+      line-height: (31 / 18);
+
+      @include mq("sp") {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+/*==========================================================================
+
+# featureセクション
+
+========================================================================== */
+.feature {
+  padding: 59px 0 93px;
+
+  @include mq("sp") {
+    padding: 45px 0 60px;
+  }
+
+  &-wrapper {
+    margin-top: 52px;
+    @include mq("tab") {
+      padding: 0 20px;
+    }
+  }
+
+  &-box {
+    display: flex;
+
+    @media (max-width: 767px) {
+      display: block;
+    }
+
+    &:not(:first-child) {
+      margin-top: 55px;
+    }
+
+    &:nth-of-type(2n) {
+      flex-direction: row-reverse;
+
+      .feature-info {
+        margin-left: 50px;
+        @media (max-width: 767px) {
+          margin-left: 0;
+        }
+      }
+    }
+
+    &:nth-of-type(2n + 1) {
+      .feature-info {
+        margin-right: 50px;
+        @include mq("sp") {
+          margin-right: 0;
+        }
+      }
+    }
+
+    &:nth-child(3) {
+      .feature-info-text {
+        margin-top: 36px;
+      }
+    }
+  }
+
+  &-info {
+    width: 500px;
+
+    @media (max-width: 1024px) {
+      width: 100%;
+    }
+
+    &-label {
+      display: inline-block;
+      background-color: $accent-color;
+      color: $main-color;
+      font-size: 12px;
+      padding: 8px 25px 8px 26px;
+    }
+
+    &-title {
+      font-size: 26px;
+      font-weight: bold;
+      line-height: (39 / 26);
+      margin-top: 29px;
+
+      @include mq("sp") {
+        font-size: 20px;
+        margin-top: 15px;
+      }
+
+      @include mq("tab") {
+        margin-top: 20px;
+      }
+    }
+
+    &-text {
+      line-height: (27 / 16);
+      margin-top: 28px;
+
+      @include mq("sp") {
+        margin-top: 15px;
+        font-size: 14px;
+      }
+
+      @include mq("tab") {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  &-picture {
+    width: 350px;
+
+    @media (max-width: 1024px) {
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+}
+
+/*==========================================================================
+
+# priceセクション
+
+========================================================================== */
+.price {
+  width: 906px;
+  margin: 0 auto;
+  background-image: url(#{$css-path}img/bg/price.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 217px;
+
+  @include mq("sp") {
+    width: 100%;
+    background-image: url(#{$css-path}img/bg/sp/price-sp.jpg);
+  }
+
+  @include mq("tab") {
+    margin: 0 calc(50% - 50vw);
+    width: 100vw;
+  }
+
+  &-box {
+    text-align: center;
+    padding: 59px 0 48px;
+  }
+
+  &-title {
+    font-size: 26px;
+    color: $main-color;
+    font-weight: bold;
+
+    @include mq("sp") {
+      font-size: 24px;
+    }
+  }
+
+  &-button {
+    margin-top: 23px;
+
+    a {
+      display: inline-block;
+      color: $main-color;
+      border: solid 1px $main-color;
+      border-radius: 30px;
+      padding: 15px 44px;
+      transition: all 0.3s ease 0s;
+      @media (min-width: 1025px) {
+        &:hover {
+          background-color: $main-color;
+          color: $secondary-color;
+          transition: all 0.3s ease 0s;
+        }
+      }
+
+      @include mq("sp") {
+        padding: 14px 44px;
+      }
+    }
+  }
+}
+
+/*==========================================================================
+
+# caseセクション
+
+========================================================================== */
+.case {
+  margin-top: 39px;
+  background-color: $secondary-color;
+  padding: 55px 0 60px;
+
+  @include mq("sp") {
+    padding: 50px 0 60px;
+  }
+
+  &-inner {
+    width: 982px;
+    @include mq("sp") {
+      width: 100%;
+      padding: 0 20px;
+    }
+  }
+
+  &-list {
+    display: flex;
+    margin-top: 125px;
+
+    @include mq("sp") {
+      display: block;
+      margin-top: 50px;
+    }
+
+    @include mq("tab") {
+      justify-content: center;
+      // display: block;
+    }
+  }
+
+  &-item {
+    width: calc(33.3% - 30px * 2 / 3);
+    max-width: 280px;
+    @include mq("sp") {
+      max-width: 100%;
+      width: 100%;
+    }
+
+    @include mq("tab") {
+      width: calc(33.3% - 15px * 2 / 3);
+      max-width: 100%;
+      margin-top: 10px;
+    }
+
+    &:not(:first-child) {
+      margin-left: 31px;
+      @include mq("sp") {
+        margin-left: 0;
+        margin-top: 40px;
+      }
+      @include mq("tab") {
+        margin-left: 15px;
+      }
+    }
+    
+    &-head {
+      color: $main-color;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: (29 / 16);
+      @include mq("tab") {
+        height: calc(1.8rem * 3);
+        line-height: 1.8rem;
+        // order: 1;
+        // margin-left: 20px;
+      }
+    }
+  
+    &-picture {
+      background-position: center bottom;
+      background-color: $main-color;
+      background-repeat: no-repeat;
+      width: 100%;
+      height: 171px;
+      margin-top: 6px;
+      @include mq("sp") {
+        height: 200px;
+      }
+      @include mq("tab") {
+        // max-width: 40%;
+        // margin-top: 0;
+      }
+    }
+  
+    &-body {
+      margin-top: 15px;
+      font-size: 0;
+    }
+  
+    &-profile {
+      display: flex;
+      @include mq("tab") {
+        display: block;
+      }
+    }
+  
+    &-business,
+    &-name,
+    &-result {
+      background-color: $main-color;
+      font-size: 16px;
+      @include mq("tab") {
+        font-size: 14px;
+        text-align: center;
+      }
+    }
+  
+    &-business {
+      width: 100px;
+      flex-grow: 0;
+      padding: 8px 10px;
+      @include mq("sp") {
+        width: 36%;
+      }
+      @include mq("tab") {
+        padding: 8px 5px;
+        width: 100%;
+      }
+    }
+  
+    &-name {
+      flex-grow: 1;
+      padding: 8px 14px;
+      margin-left: 8px;
+      @include mq("sp") {
+        width: 180px;
+      }
+  
+      @include mq("tab") {
+        padding: 8px 10px;
+        width: 100%;
+        margin-left: 0;
+        margin-top: 10px;
+      }
+    }
+  
+    &-result {
+      margin-top: 10px;
+      padding: 7px 14px 6px;
+      @include mq('sp') {
+        padding: 8px 14px;
+      }
+      @include mq("tab") {
+        padding: 8px;
+      }
+    }
+  }
+
+}
+
+/*==========================================================================
+
+# flowセクション
+
+========================================================================== */
+.flow {
+  margin-top: 55px;
+
+  &__dl {
+    margin-top: 48px;
+    display: flex;
+    flex-wrap: wrap;
+
+    dt {
+      width: 30.9%;
+      background-color: #f8f8f8;
+      font-size: 18px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      @include mq("sp") {
+        width: 100%;
+        height: auto;
+        // padding: 12px 0;
+      }
+      @include mq("tab") {
+        width: 243px;
+        font-size: 16px;
+      }
+
+      &:not(:first-child) {
+        margin-top: 6px;
+        @include mq('sp') {
+          margin-top: 15px;
+        }
+      }
+
+      span {
+        padding: 24px 23px;
+        background-color: $accent-color;
+        color: $main-color;
+        margin-right: 21px;
+        font-size: 16px;
+
+        @include mq("sp") {
+          padding: 14px 23px;
+        }
+
+        @include mq("tab") {
+          padding: 24px 14px;
+          // padding: 22px 13px 26px;
+          margin-right: 10px;
+        }
+      }
+    }
+
+    dd {
+      width: calc(100% - 37%);
+      // height: 64px;
+      background-color: #f8f8f8;
+      padding: 25px 0 23px 53.5px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      @include mq("sp") {
+        width: 100%;
+        padding: 10px;
+      }
+      @include mq("tab") {
+        width: calc(100% - 243px);
+        padding: 15px 15px 15px 20px;
+        vertical-align: middle;
+      }
+
+      &:not(:first-of-type) {
+        margin-top: 6px;
+        @include mq("sp") {
+          margin-top: 0;
+        }
+      }
+
+      &::before {
+        position: absolute;
+        content: "";
+        width: 1px;
+        height: 29px;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        background-color: #c3c3c3;
+
+        @include mq("sp") {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+/*==========================================================================
+
+# faqセクション
+
+========================================================================== */
+.faq {
+  margin-top: 70px;
+  @include mq("sp") {
+    margin-top: 58px;
+  }
+
+  &__dl {
+    margin-top: 26px;
+  }
+
+  &-item {
+    border-top: solid 1px $secondary-color;
+    &:last-child {
+      border-bottom: solid 1px $secondary-color;
+    }
+
+    dt {
+      padding: 23.5px 0 17.5px;
+      position: relative;
+      line-height: (27 / 16);
+      cursor: pointer;
+      @include mq("sp") {
+        padding: 19px 38px 19px 0;
+        line-height: 1.5;
+      }
+      @include mq('tab') {
+        padding-right: 55px;
+      }
+
+      &::before,
+      &::after {
+        position: absolute;
+        content: "";
+        width: 25px;
+        height: 3px;
+        background-color: $secondary-color;
+        top: 50%;
+        right: 20.5px;
+        @include mq("sp") {
+          right: 10px;
+        }
+      }
+
+      &::before {
+        transform: translateY(-50%) rotate(90deg);
+        transition: all 0.3s ease 0s;
+      }
+
+      &:after {
+        transform: translateY(-50%);
+      }
+
+      &.is-open::before {
+        transform: translateY(-50%) rotate(180deg);
+        transition: all 0.3s ease 0s;
+      }
+    }
+
+    dd {
+      background-color: #f8f8f8;
+      padding: 20px 28px 19px 26px;
+      margin-bottom: 19.5px;
+      display: none;
+      @include mq('sp') {
+        padding: 20px 24px 19px;
+        line-height: 1.4;
+      }
+    }
+
+    &:not(:first-child) {
+      dt {
+        padding: 25px 0 21px;
+        @include mq('sp') {
+          padding: 19px 38px 19px 0;
+        }
+
+        @include mq('tab') {
+          padding-right: 55px;
+        }
+      }
+    }
+  }
+}
+
+/*==========================================================================
+
+# archiveセクション
+
+========================================================================== */
+.archive {
+  margin-top: 88px;
+  padding-bottom: 119px;
+  @include mq("sp") {
+    padding-bottom: 70px;
+  }
+
+  &-inner {
+    display: flex;
+    @include mq("sp") {
+      display: block;
+    }
+  }
+
+  &-title {
+    font-size: 32px;
+    font-weight: bold;
+    @include mq("sp") {
+      text-align: center;
+    }
+  }
+}
+
+/*
+# blog
+==================================== */
+.blog {
+  max-width: 430px;
+  @include mq("sp") {
+    max-width: 100%;
+  }
+  @include mq("tab") {
+    max-width: 100%;
+    width: 60%;
+  }
+
+  &-list {
+    margin-top: 33px;
+  }
+
+  &-item {
+    &:not(:first-child) {
+      margin-top: 31px;
+    }
+
+    a {
+      display: flex;
+      transition: all 0.3s ease 0s;
+      @media (min-width: 1025px) {
+        &:hover {
+          opacity: 0.5;
+          transition: all 0.3s ease 0s;
+        }
+      }
+    }
+
+    &-head {
+      position: relative;
+
+      img {
+        width: 150px;
+        height: 110px;
+        object-fit: cover;
+
+        @include mq("sp") {
+          width: 140px;
+          height: 100px;
+        }
+      }
+    }
+
+    &-category {
+      padding: 4px 9px;
+      border: solid 1px #707070;
+    }
+
+    &-body {
+      margin-left: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    &-title {
+      font-weight: bold;
+      line-height: (27 / 16);
+      margin-top: -5px;
+      text-decoration: underline;
+      @include mq("sp") {
+        line-height: 1.5;
+      }
+    }
+
+    &-date {
+      font-size: 12px;
+      padding-top: auto;
+    }
+  }
+}
+
+/*
+# news
+==================================== */
+.news {
+  margin-left: 67px;
+  width: 402px;
+  @include mq("sp") {
+    margin-left: 0;
+    margin-top: 80px;
+    width: 100%;
+  }
+  @include mq("tab") {
+    width: calc(100% - 60%);
+    margin-left: 40px;
+  }
+
+  &-list {
+    margin-top: 33px;
+  }
+
+  &-item {
+    height: 87px;
+
+    @include mq("sp") {
+      width: 100%;
+    }
+
+    &:not(:first-child) {
+      margin-top: 17px;
+    }
+
+    a {
+      display: block;
+      transition: all 0.3s ease 0s;
+      @media (min-width: 1025px) {
+        &:hover {
+          opacity: 0.5;
+          transition: all 0.3s ease 0s;
+        }
+      }
+    }
+  }
+
+  &-date {
+    font-size: 12px;
+  }
+
+  &-title {
+    margin-top: 14px;
+    text-decoration: underline;
+  }
+}

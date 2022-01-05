@@ -1,0 +1,125 @@
+@use "../config/setting" as *;
+/*==========================================================================
+
+# cta
+
+========================================================================== */
+.cta {
+  width: 100%;
+  
+  &-top {
+    background-image: url(#{$css-path}img/bg/cta.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    @include mq('sp') {
+      background-image: url(#{$css-path}img/bg/sp/cta-sp.jpg);
+    }
+
+    &-box {
+      padding: 69px 0 41.4px;
+    }
+
+    &-title {
+      font-size: 32px;
+      font-weight: bold;
+      color: $main-color;
+      @include mq('sp') {
+        font-size: 28px;
+      }
+    }
+
+    &-button {
+      margin-top: 22px;
+
+      a {
+        background-color: $accent-color;
+        padding: 16px 108px 13px;
+        border-radius: 25px;
+        border: solid 1px $accent-color;
+        transition: all 0.3s ease 0s;
+        @media (min-width: 1025px) {
+          &:hover {
+            background-color: $main-color;
+            color: $accent-color;
+            transition: all 0.3s ease 0s;
+          }
+        }
+        @include mq('sp') {
+          padding: 15px 95px 17px;
+        }
+        @include mq('tab') {
+          padding: 14px 95px 16px;
+        }
+      }
+    }
+
+    &-link {
+      margin-top: 22px;
+      a {
+        color: $main-color;
+        text-decoration: underline;
+        transition: all 0.3s ease 0s;
+        @media (min-width: 1025px) {
+          &:hover {
+            opacity: 0.5;
+            transition: all 0.3s ease 0s;
+          }
+        }
+      }
+    }
+  }
+
+  &-bottom {
+    padding: 16px 0 19.6px;
+    text-align: center;
+    @include mq('sp') {
+      padding: 20px 0;
+    }
+
+    &-text {
+      font-weight: bold;
+      display: inline-block;
+      margin-right: 110px;
+      @media (max-width: 1024px) {
+        margin-right: 0;
+      } 
+
+      span.tel {
+        font-size: 36px;
+        margin-left: 20px;
+
+        @media (min-width: 1025px) {
+          a[href^="tel:"] {
+            pointer-events: none;
+          }
+        }
+        
+        @include mq('sp') {
+          display: block;
+          margin-left: 0;
+          font-size: 26px;
+          margin-top: 8px;
+        }
+
+        @include mq('tab') {
+          font-size: 30px;
+        }
+      }
+
+      span.tel-text {
+        font-weight: normal;
+        margin-left: 20px;
+        @include mq('sp') {
+          display: block;
+          margin-left: 0;
+          margin-top: 8px;
+        }
+        @include mq('tab') {
+          display: block;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}

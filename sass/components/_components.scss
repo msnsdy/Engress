@@ -1,0 +1,190 @@
+@use "../config/setting" as *;
+
+/*
+# front-page
+==================================== */
+.section-title {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+
+  @include mq("sp") {
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  &.-white {
+    color: $main-color;
+  }
+}
+
+/*
+# lower-page
+==================================== */
+.mv-lower {
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  @include mq("sp") {
+    background-position: center;
+  }
+
+  &-wrapper {
+    padding: 93px 0 92px;
+    text-align: center;
+  }
+
+  &-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: $main-color;
+    @include mq("sp") {
+      font-size: 30px;
+    }
+  }
+}
+
+.lower-title {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  @include mq("sp") {
+    font-size: 28px;
+  }
+}
+
+.single-title {
+  font-size: 28px;
+  font-weight: bold;
+  @include mq("sp") {
+    font-size: 26px;
+    line-height: 1.4;
+  }
+}
+/* singleページ本文共通スタイル */
+.single-article {
+  /* singleページ見出し */
+  h2 {
+    font-size: 26px;
+    font-weight: bold;
+  }
+
+  h3 {
+    font-size: 22px;
+    font-weight: bold;
+    padding-left: 14px;
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 4px;
+      height: 28px;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      background-color: $secondary-color;
+    }
+  }
+
+  /* singleページ引用部分 */
+  blockquote {
+    background-color: #f8f8f8;
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: "“";
+      width: 46px;
+      height: 45px;
+      font-size: 90px;
+      color: #b4b4b4;
+    }
+  }
+
+  /* singleページリスト部分 */
+  ul > li {
+    position: relative;
+    margin-top: 10px;
+    @include mq("sp") {
+      &:not(:first-child) {
+        margin-top: 10px;
+      }
+    }
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 11px;
+      height: 11px;
+      top: 6px;
+      left: 0;
+      background-color: $accent-color;
+      border-radius: 50px;
+    }
+  }
+
+  ol > li {
+    list-style: decimal;
+    padding-left: 10px;
+    margin-top: 10px;
+  }
+
+  /* singleページリンク部分 */
+  a {
+    display: inline-block;
+    font-size: 18px;
+    color: $accent-color;
+    text-decoration: underline;
+    transition: all 0.3s ease 0s;
+
+    @media (min-width: 1025px) {
+      &:hover {
+        opacity: 0.5;
+        transition: all 0.3s ease 0s;
+      }
+    }
+  }
+}
+
+/*
+# button
+==================================== */
+.button {
+  color: $main-color;
+  font-weight: bold;
+
+  a {
+    display: inline-block;
+  }
+}
+
+/*
+# category-label
+==================================== */
+.category-label,
+.category-single {
+  background-color: $secondary-color;
+  color: $main-color;
+  display: inline-block;
+  font-size: 12px;
+}
+
+.category-single {
+  a {
+    transition: all 0.3s ease 0s;
+
+    @media (min-width: 1025px) {
+      &:hover {
+        opacity: 0.5;
+        transition: all 0.3s ease 0s;
+      }
+    }
+  }
+}
+
+.category-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+}

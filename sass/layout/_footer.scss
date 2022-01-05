@@ -1,0 +1,193 @@
+@use "../config/setting" as *;
+/*==========================================================================
+
+# footer
+
+========================================================================== */
+.footer {
+  &-top {
+    padding: 35px 0 65px;
+    background-color: $secondary-color;
+    @include mq("sp") {
+      padding: 30px 30px 50px;
+    }
+    @include mq("tab") {
+      padding: 35px 0px 50px;
+    }
+    
+    &-wrapper {
+      display: flex;
+      justify-content: space-between;
+      width: 950px;
+      margin: 0 auto;
+      padding-left: 32px;
+      @include mq('sp') {
+        width: 100%;
+        padding-left: 0;
+      }
+      @include mq('tab') {
+        width: 600px;
+        padding: 0 20px;
+      }
+    }
+  }
+
+  &-nav {
+    padding-top: 14px;
+    @include mq("sp") {
+      padding-top: 0;
+    }
+
+    &-list {
+      display: flex;
+      @media (max-width:1024px) {
+        display: block;
+      }
+
+      a {
+        transition: all 0.3s ease 0s;
+        @media (min-width: 1025px) {
+          &:hover {
+            opacity: 0.5;
+            transition: all 0.3s ease 0s;
+          }
+        }
+      }
+    }
+
+    &-item {
+      color: $main-color;
+      font-weight: bold;
+      position: relative;
+
+      &:not(:first-child) {
+        padding-left: 23.5px;
+        @media (max-width:1024px) {
+          padding-left: 0;
+          margin-top: 16px;
+        }
+
+        &::before {
+          position: absolute;
+          content: "";
+          width: 1px;
+          height: 23px;
+          top: 50%;
+          left: 0;
+          transform: translateY(-50%);
+          background-color: $main-color;
+          @media (max-width:1024px) {
+            display: none;
+          }
+        }
+      }
+
+      &:not(:last-child) {
+        padding-right: 22.5px;
+      }
+    }
+  }
+
+  &-info {
+    padding-right: 7px;
+    @media (max-width:1024px) {
+      padding-right: 0;
+    }
+  }
+
+  &-logo {
+    a {
+      width: 197px;
+      padding: 14px 19px 13px;
+      background-color: $main-color;
+      display: inline-block;
+      @media (min-width: 1025px) {
+        &:hover {
+          img {
+            opacity: 0.5;
+            transition: all 0.3s ease 0s;
+          }
+        }
+      }
+      @include mq("sp") {
+        width: 160px;
+      }
+
+      img {
+        width: 159px;
+        transition: all 0.3s ease 0s;
+        @include mq("sp") {
+          width: 126px;
+        }
+      }
+    }
+  }
+
+  &-tel {
+    color: $main-color;
+    text-align: right;
+    margin-top: 27px;
+
+    &-number {
+      font-weight: bold;
+      position: relative;
+      padding-left: 17px;
+
+      @media (min-width: 1025px) {
+        &[href^="tel:"] {
+          pointer-events: none;
+        }
+      }
+
+
+      &::before {
+        position: absolute;
+        content: "";
+        width: 10px;
+        height: 14.7px;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        background: url(#{$css-path}img/icon/tel_footer.svg) no-repeat center center / contain;
+      }
+    }
+
+    &-text {
+      font-size: 12px;
+      margin-top: 13px;
+    }
+  }
+
+  &-bottom {
+    padding: 12px 0 12px;
+    text-align: right;
+    @include mq("sp") {
+      text-align: center;
+      padding: 12px 0;
+    }
+    @include mq("tab") {
+      padding: 12px 0 12px;
+    }
+  }
+
+  &-copyright {
+    font-size: 12px;
+    font-weight: bold;
+    width: 950px;
+    margin: 0 auto;
+    padding-right: 11px;
+    
+    @media (max-width: 1024px) {
+      padding-right: 0;
+    }
+
+    @include mq('sp') {
+    width: 100%;
+    }
+
+    @include mq('tab') {
+      text-align: center;
+      width: 100%;
+    }
+  }
+}
